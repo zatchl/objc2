@@ -67,7 +67,7 @@ pub use self::mutable_data::NSMutableData;
 pub use self::mutable_string::NSMutableString;
 pub use self::number::NSNumber;
 pub use self::object::NSObject;
-pub use self::process_info::NSProcessInfo;
+pub use self::process_info::{NSOperatingSystemVersion, NSProcessInfo, NSProcessInfoThermalState};
 pub use self::range::NSRange;
 pub use self::string::NSString;
 pub use self::thread::{is_main_thread, is_multi_threaded, MainThreadMarker, NSThread};
@@ -173,7 +173,9 @@ mod tests {
         assert_auto_traits::<NSMutableString>();
         assert_auto_traits::<NSNumber>();
         // assert_auto_traits::<NSObject>(); // Intentional
+        assert_auto_traits::<NSOperatingSystemVersion>();
         assert_auto_traits::<NSProcessInfo>();
+        assert_auto_traits::<NSProcessInfoThermalState>();
         assert_auto_traits::<NSRange>();
         assert_auto_traits::<NSString>();
         assert_unwindsafe::<MainThreadMarker>(); // Intentional
